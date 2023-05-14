@@ -20,7 +20,7 @@ type (
 // New returns a new instance of Day.
 func New() *Day {
 	return &Day{
-		InputFile: "./d1/input",
+		InputFile: "./day1/input.txt",
 	}
 }
 
