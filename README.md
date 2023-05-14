@@ -8,7 +8,7 @@ A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/202
 |📅          |Stars|
 |------------|-----|
 | [1](day1) | 🌟🌟 |
-| [2](day2) | 🌟🌟 |
+| [2](day2) |  |
 
 
 ## Mission brief
