@@ -1,5 +1,5 @@
-// Package d1 implements the solution to Day 1 of the Advent of Code 2022.
-package d1
+// Package day1 implements the solution to Day 1 of the Advent of Code 2022.
+package day1
 
 type (
 	// Elf contains the information about an elf.

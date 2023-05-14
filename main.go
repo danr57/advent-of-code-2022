@@ -3,11 +3,11 @@ package main
 
 import (
 	"github/danr57/advent-of-code-2022/advent"
-	"github/danr57/advent-of-code-2022/d1"
+	"github/danr57/advent-of-code-2022/day1"
 )
 
 func main() {
 	advent.NewAdvent().RunCalendar([]advent.Day{
-		d1.New(),
+		day1.New(),
 	})
 }
