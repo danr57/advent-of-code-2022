@@ -31,13 +31,13 @@ func (d *Day) Setup() error {
 		line := fileScanner.Text()
 
 		moves := strings.Split(line, " ")
-		round.OpponentHand = mapInputToHand(moves[0])
-		round.MyHand = mapInputToHand(moves[1])
-		round.NeededResult = mapInputToResult(moves[1])
+		round.OpponentHand = moves[0]
+		round.MyHand = moves[1]
+		// round.Score =
 
-		d.Matches = append(d.Matches, match)
+		d.Rounds = append(d.Rounds, round)
 
-		match = &Match{}
+		round = &Round{}
 	}
 
 	return nil
