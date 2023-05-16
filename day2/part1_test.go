@@ -1,14 +1,13 @@
 package day2_test
 
 import (
-	"github/danr57/advent-of-code-2022/day2"
 	"testing"
+
+	"github/danr57/advent-of-code-2022/day2"
 )
 
 func TestPart1(t *testing.T) {
 	t.Parallel()
-
-	exampleAns := "15"
 
 	day := &day2.Day{
 		InputFile: "example.txt",
@@ -23,7 +22,7 @@ func TestPart1(t *testing.T) {
 		t.Fatalf("error running part 1: %s", err)
 	}
 
-	if result != exampleAns {
+	if exampleAns := "15"; result != exampleAns {
 		t.Fatalf("expected result to be %s, got %s", exampleAns, result)
 	}
 }

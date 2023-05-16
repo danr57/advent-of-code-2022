@@ -15,7 +15,7 @@ func (d *Day) Setup() error {
 		return fmt.Errorf("error opening file: %w", err)
 	}
 
-	defer func() {
+	defer func() { //nolint:gosec // False positive
 		if err := readFile.Close(); err != nil {
 			log.Fatal(err)
 		}
