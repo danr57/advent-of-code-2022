@@ -26,4 +26,4 @@ C Z
 </ul>
 <p>Now that you're correctly decrypting the ultra top secret strategy guide, you would get a total score of <code><em>12</em></code>.</p>
 <p>Following the Elf's instructions for the second column, <em>what would your total score be if everything goes exactly according to your strategy guide?</em></p>
-</article>
+</article><p>Your puzzle answer was <code>13022</code>.</p>
