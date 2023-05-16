@@ -2,8 +2,11 @@
 package day3
 
 type (
+	Bag struct {
+	}
+
 	// Day is the implementation of Day 3.
-	Day struct{
+	Day struct {
 		InputFile string
 	}
 )
@@ -19,4 +22,3 @@ func New() *Day {
 func (d *Day) Number() int {
 	return 3
 }
-

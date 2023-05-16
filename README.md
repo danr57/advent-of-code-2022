@@ -9,8 +9,10 @@ A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/202
 |------------|-----|
 | [1](day1) | 🌟🌟 |
 | [2](day2) | 🌟🌟 |
-| [3](dayd) |  |
+| [3](day3) |  |
+| [5](day5) | 🌟🌟 *|
 
+<p><code>Cells with an * denote collaboration with @ikadix</code></p>
 
 ## Mission brief
 <article class="day-desc"><p>Santa's reindeer typically eat regular reindeer food, but they need a lot of <a href="/2018/day/25">magical energy</a> to deliver presents on Christmas. For that, their favorite snack is a special type of <em class="star">star</em> fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.</p>
