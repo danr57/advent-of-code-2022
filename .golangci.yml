@@ -6,6 +6,8 @@ run:
   # default concurrency is a available CPU number
   # concurrency: 4
 
+  # go
+
   # timeout for analysis, e.g. 30s, 5m, default is 1m
   timeout: 5m
 
@@ -56,7 +58,6 @@ run:
   # If false (default) - golangci-lint acquires file lock on start.
   allow-parallel-runners: false
 
-
 # output configuration options
 output:
   # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
@@ -74,6 +75,8 @@ output:
   # add a prefix to the output file references; default is no prefix
   path-prefix: ""
 
+  # Sort results by: filepath, line and column.
+  sort-results: true
 
 # all available settings of specific linters
 linters-settings:
@@ -82,7 +85,7 @@ linters-settings:
     max-blank-identifiers: 2
   dupl:
     # tokens count to trigger issue, 150 by default
-    threshold: 100
+    threshold: 300
   errcheck:
     # report about not checking of errors in type assertions: `a := b.(MyStruct)`;
     # default is false: such cases aren't reported by default.
@@ -110,11 +113,11 @@ linters-settings:
   funlen:
     lines: 60
     statements: 40
-  gci:
-    # put imports beginning with prefix after 3rd-party packages;
-    # only support one prefix
-    # if not set, use goimports.local-prefixes
-    local-prefixes: github.com/org/project
+  # gci:
+  # put imports beginning with prefix after 3rd-party packages;
+  # only support one prefix
+  # if not set, use goimports.local-prefixes
+  # local-prefixes: github.com/org/project
   gocognit:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 10
@@ -163,66 +166,64 @@ linters-settings:
     # simplify code: gofmt with `-s` option, true by default
     simplify: true
   # goheader:
-    # values:
-      # const:
-        # define here const type values in format k:v, for example:
-        # YEAR: 2020
-        # COMPANY: MY COMPANY
-      # regexp:
-        # define here regexp type values, for example
-        # AUTHOR: .*@mycompany\.com
-    # template:
-      # put here copyright header template for source code files, for example:
-      #    {{ AUTHOR }} {{ COMPANY }} {{ YEAR }}
-      #    SPDX-License-Identifier: Apache-2.0
-      #
-      #    Licensed under the Apache License, Version 2.0 (the "License");
-      #    you may not use this file except in compliance with the License.
-      #    You may obtain a copy of the License at:
-      #
-      #      http://www.apache.org/licenses/LICENSE-2.0
-      #
-      #    Unless required by applicable law or agreed to in writing, software
-      #    distributed under the License is distributed on an "AS IS" BASIS,
-      #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      #    See the License for the specific language governing permissions and
-      #    limitations under the License.
-    # template-path:
-      # also as alternative of directive 'template' you may put the path to file with the template source
+  # values:
+  # const:
+  # define here const type values in format k:v, for example:
+  # YEAR: 2020
+  # COMPANY: MY COMPANY
+  # regexp:
+  # define here regexp type values, for example
+  # AUTHOR: .*@mycompany\.com
+  # template:
+  # put here copyright header template for source code files, for example:
+  #    {{ AUTHOR }} {{ COMPANY }} {{ YEAR }}
+  #    SPDX-License-Identifier: Apache-2.0
+  #
+  #    Licensed under the Apache License, Version 2.0 (the "License");
+  #    you may not use this file except in compliance with the License.
+  #    You may obtain a copy of the License at:
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  #    Unless required by applicable law or agreed to in writing, software
+  #    distributed under the License is distributed on an "AS IS" BASIS,
+  #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  #    See the License for the specific language governing permissions and
+  #    limitations under the License.
+  # template-path:
+  # also as alternative of directive 'template' you may put the path to file with the template source
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
     local-prefixes: github.com/org/project
-  golint:
-    # minimal confidence for issues, default is 0.8
-    min-confidence: 0.8
+
   gomnd:
     settings:
       mnd:
         # the list of enabled checks, see https://github.com/tommy-muehle/go-mnd/#checks for description.
-        checks: 
-         - argument
-         - case
-         - condition
-         - operation
-         - return
-         - assign
+        checks:
+          - argument
+          - case
+          - condition
+          - operation
+          - return
+          - assign
   # gomodguard:
-    # allowed:
-      # modules:                                                        # List of allowed modules
-        # - gopkg.in/yaml.v2
-      # domains:                                                        # List of allowed module domains
-        # - golang.org
-    # blocked:
-      # modules:                                                        # List of blocked modules
-        # - github.com/uudashr/go-module:                             # Blocked module
-        #     recommendations:                                        # Recommended modules that should be used instead (Optional)
-        #       - golang.org/x/mod
-        #     reason: "`mod` is the official go.mod parser library."  # Reason why the recommended module should be used (Optional)
-      # versions:                                                       # List of blocked module version constraints
-        # - github.com/mitchellh/go-homedir:                          # Blocked module with version constraint
-        #     version: "< 1.1.0"                                      # Version constraint, see https://github.com/Masterminds/semver#basic-comparisons
-        #     reason: "testing if blocked version constraint works."  # Reason why the version constraint exists. (Optional)
+  # allowed:
+  # modules:                                                        # List of allowed modules
+  # - gopkg.in/yaml.v2
+  # domains:                                                        # List of allowed module domains
+  # - golang.org
+  # blocked:
+  # modules:                                                        # List of blocked modules
+  # - github.com/uudashr/go-module:                             # Blocked module
+  #     recommendations:                                        # Recommended modules that should be used instead (Optional)
+  #       - golang.org/x/mod
+  #     reason: "`mod` is the official go.mod parser library."  # Reason why the recommended module should be used (Optional)
+  # versions:                                                       # List of blocked module version constraints
+  # - github.com/mitchellh/go-homedir:                          # Blocked module with version constraint
+  #     version: "< 1.1.0"                                      # Version constraint, see https://github.com/Masterminds/semver#basic-comparisons
+  #     reason: "testing if blocked version constraint works."  # Reason why the version constraint exists. (Optional)
   govet:
     # report about shadowed variables
     check-shadowing: true
@@ -248,8 +249,8 @@ linters-settings:
     include-go-root: false
     # packages:
     # packages-with-error-message:
-      # specify an error message to output when a blacklisted package is used
-      # - github.com/sirupsen/logrus: "logging is allowed only by logutils.Log"
+    # specify an error message to output when a blacklisted package is used
+    # - github.com/sirupsen/logrus: "logging is allowed only by logutils.Log"
   lll:
     # max line length, lines longer will be reported. Default is 120.
     # '\t' is counted as 1 character by default, and can be changed with the tab-width option
@@ -263,7 +264,7 @@ linters-settings:
     # Correct spellings using locale preferences for US or UK.
     # Default is to use a neutral variety of English.
     # Setting locale to US will correct the British spelling of 'colour' to 'color'.
-    locale: US
+    locale: UK
     ignore-words:
       - someword
   nakedret:
@@ -289,6 +290,11 @@ linters-settings:
     require-explanation: true
     # Enable to require nolint directives to mention the specific linter being suppressed. Default is false.
     require-specific: true
+  tagliatelle:
+    case:
+      use-field-name: true
+      rules:
+        json: snake
   testpackage:
     # regexp pattern to skip files
     skip-regexp: (export|internal)_test\.go
@@ -305,7 +311,7 @@ linters-settings:
     # with golangci-lint call it on a directory with the changed file.
     check-exported: false
   whitespace:
-    multi-if: false   # Enforces newlines (or comments) after every multi-line if statement
+    multi-if: false # Enforces newlines (or comments) after every multi-line if statement
     multi-func: false # Enforces newlines (or comments) after every multi-line function signature
   wsl:
     # If true append is only allowed to be cuddled if appending value is
@@ -329,43 +335,115 @@ linters-settings:
   gofumpt:
     # Choose whether or not to use the extra rules that are disabled
     # by default
-    extra-rules: false
+    extra-rules: true
   errorlint:
     # Report non-wrapping error creation using fmt.Errorf
     errorf: true
+  maintidx:
+    # Show functions with maintainability index lower than N.
+    # A high index indicates better maintainability (it's kind of the opposite of complexity).
+    # Default: 20
+    under: 20
+  grouper:
+    # Require the use of a single global 'const' declaration only.
+    # Default: false
+    const-require-single-const: true
+    # Require the use of grouped global 'const' declarations.
+    # Default: false
+    const-require-grouping: true
+    # Require the use of a single 'import' declaration only.
+    # Default: false
+    import-require-single-import: true
+    # Require the use of grouped 'import' declarations.
+    # Default: false
+    import-require-grouping: true
+    # Require the use of a single global 'type' declaration only.
+    # Default: false
+    type-require-single-type: true
+    # Require the use of grouped global 'type' declarations.
+    # Default: false
+    type-require-grouping: true
+    # Require the use of a single global 'var' declaration only.
+    # Default: false
+    var-require-single-var: true
+    # Require the use of grouped global 'var' declarations.
+    # Default: false
+    var-require-grouping: true
+  errchkjson:
+    # With check-error-free-encoding set to true, errchkjson does warn about errors
+    # from json encoding functions that are safe to be ignored,
+    # because they are not possible to happen.
+    #
+    # if check-error-free-encoding is set to true and errcheck linter is enabled,
+    # it is recommended to add the following exceptions to prevent from false positives:
+    #
+    #     linters-settings:
+    #       errcheck:
+    #         exclude-functions:
+    #           - encoding/json.Marshal
+    #           - encoding/json.MarshalIndent
+    #
+    # Default: false
+    check-error-free-encoding: true
+    # Issue on struct encoding that doesn't have exported fields.
+    # Default: false
+    report-no-exported: false
+  decorder:
+    # Required order of `type`, `const`, `var` and `func` declarations inside a file.
+    # Default: types before constants before variables before functions.
+    dec-order:
+      - type
+      - const
+      - var
+      - func
+    # If true, order of declarations is not checked at all.
+    # Default: true (disabled)
+    disable-dec-order-check: false
+    # If true, `init` func can be anywhere in file (must not be declared before all other functions).
+    # Default: true (disabled)
+    disable-init-func-first-check: false
+    # If true, multiple global `type`, `const` and `var` declarations are allowed.
+    # Default: true (disabled)
+    disable-dec-num-check: false
 
   # The custom section can be used to define linter plugins to be loaded at runtime. See README doc
   #  for more info.
   # custom:
-    # Each custom linter should have a unique name.
-    #  example:
-      # The path to the plugin *.so. Can be absolute or local. Required for each custom linter
-      # path: /path/to/example.so
-      # The description of the linter. Optional, just for documentation purposes.
-      # description: This is an example usage of a plugin linter.
-      # Intended to point to the repo location of the linter. Optional, just for documentation purposes.
-      # original-url: github.com/golangci/example-linter
+  # Each custom linter should have a unique name.
+  #  example:
+  # The path to the plugin *.so. Can be absolute or local. Required for each custom linter
+  # path: /path/to/example.so
+  # The description of the linter. Optional, just for documentation purposes.
+  # description: This is an example usage of a plugin linter.
+  # Intended to point to the repo location of the linter. Optional, just for documentation purposes.
+  # original-url: github.com/golangci/example-linter
 
 linters:
   enable:
-    - bodyclose
+    - asasalint
+    - asciicheck
     - bidichk
+    - bodyclose
+    - containedctx
     - contextcheck
     - cyclop
-    - deadcode
+    - decorder
     - depguard
     - dogsled
     - dupl
     - durationcheck
     - errcheck
+    - errchkjson
     - errname
     - errorlint
+    - execinquery
     - exhaustive
     - exportloopref
     - forbidigo
     - forcetypeassert
     - funlen
     - gci
+    - gocheckcompilerdirectives
     - gochecknoglobals
     - gochecknoinits
     - gocognit
@@ -373,7 +451,9 @@ linters:
     - gocritic
     - gocyclo
     - godot
+    - godox
     - goerr113
+    - goheader
     - gomnd
     - gomoddirectives
     - gomodguard
@@ -381,11 +461,12 @@ linters:
     - gosec
     - gosimple
     - govet
-    - ifshort
+    - grouper
     - importas
     - ineffassign
     - ireturn
     - lll
+    - maintidx
     - makezero
     - misspell
     - nakedret
@@ -399,37 +480,34 @@ linters:
     - prealloc
     - predeclared
     - promlinter
+    - reassign
     - revive
     - rowserrcheck
     - sqlclosecheck
     - staticcheck
-    - structcheck
     - stylecheck
     - tagliatelle
     - tenv
-    - thelper    
+    - thelper
     - tparallel
     - typecheck
     - unconvert
     - unparam
     - unused
-    - varcheck
+    - usestdlibvars
     - varnamelen
     - wastedassign
     - whitespace
     - wrapcheck
     - wsl
   disable:
-
     - scopelint
-
 
   disable-all: false
   presets:
     - bugs
     - unused
   fast: true
-
 
 issues:
   # List of regexps of issue texts to exclude, empty list by default.
@@ -450,8 +528,9 @@ issues:
         - gosec
         - gochecknoinits
         - gochecknoglobals
+        - ireturn
     # Exclude some linters from running on command files
-    - path: cmd/*
+    - path: cmd/*.go
       linters:
         - gochecknoinits
         - gochecknoglobals
@@ -467,7 +546,7 @@ issues:
     - linters:
         - staticcheck
       text: "SA9003:"
-    
+
     # Exclude gochecknoglobals issues for sync.Once
     - linters:
         - gochecknoglobals
@@ -482,7 +561,7 @@ issues:
   # it can be disabled by this option. To list all
   # excluded by default patterns execute `golangci-lint run --help`.
   # Default value for this option is true.
-  exclude-use-default: false
+  exclude-use-default: true
 
   # The default value is false. If set to true exclude and exclude-rules
   # regular expressions become case sensitive.
@@ -537,5 +616,5 @@ severity:
   # Only affects out formats that support setting severity information.
   rules:
     - linters:
-      - dupl
+        - dupl
       severity: info

@@ -1,8 +1,9 @@
 package day1_test
 
 import (
-	"github/danr57/advent-of-code-2022/day1"
 	"testing"
+
+	"github/danr57/advent-of-code-2022/day1"
 )
 
 func TestPart1(t *testing.T) {

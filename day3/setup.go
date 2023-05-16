@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 // Setup sets up any required data for the days puzzle.
@@ -24,5 +25,28 @@ func (d *Day) Setup() error {
 
 	fileScanner.Split(bufio.ScanLines)
 
+	for fileScanner.Scan() {
+		bag := &Bag{}
+
+		line := fileScanner.Text()
+		splitPoint := len(line) / 2 //nolint:gomnd // halving a value, leave me alone
+
+		items := strings.Split(line, "")
+		bag.Compartments[0].MappedItems = mapItems(items[:splitPoint])
+		bag.Compartments[1].MappedItems = mapItems(items[splitPoint:])
+
+		d.Bags = append(d.Bags, bag)
+	}
+
 	return nil
+}
+
+func mapItems(items []string) map[string]int {
+	mappedItems := make(map[string]int)
+
+	for _, item := range items {
+		mappedItems[item]++
+	}
+
+	return mappedItems
 }

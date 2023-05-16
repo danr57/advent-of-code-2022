@@ -38,7 +38,6 @@ func (d *Day) Setup() error {
 		elf.Calories += food
 
 		elf.Foods = append(elf.Foods, food)
-
 	}
 
 	d.Elves = append(d.Elves, elf)
