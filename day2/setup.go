@@ -25,6 +25,8 @@ func (d *Day) Setup() error {
 
 	fileScanner.Split(bufio.ScanLines)
 
+	d.Score = 0
+
 	round := &Round{}
 
 	for fileScanner.Scan() {
@@ -33,7 +35,8 @@ func (d *Day) Setup() error {
 		moves := strings.Split(line, " ")
 		round.OpponentHand = moves[0]
 		round.MyHand = moves[1]
-		// round.Score =
+		round.Score = round.playRound()
+		d.Score += round.playRound()
 
 		d.Rounds = append(d.Rounds, round)
 

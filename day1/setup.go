@@ -41,5 +41,7 @@ func (d *Day) Setup() error {
 
 	}
 
+	d.Elves = append(d.Elves, elf)
+
 	return nil
 }

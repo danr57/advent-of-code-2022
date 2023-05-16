@@ -2,22 +2,19 @@
 package day2
 
 type (
-	Round struct {
-		OpponentHand string
-		MyHand       string
-		Score        int
-	}
-
 	// Day is the implementation of Day 2.
 	Day struct {
 		InputFile string
+		Score     int
 		Rounds    []*Round
 	}
 )
 
 // New returns a new instance of Day.
 func New() *Day {
-	return &Day{}
+	return &Day{
+		InputFile: "./day2/input.txt",
+	}
 }
 
 // Number returns the day number.
