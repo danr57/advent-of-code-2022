@@ -9,6 +9,7 @@ A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/202
 |------------|-----|
 | [1](day1) | 🌟🌟 |
 | [2](day2) | 🌟🌟 |
+| [3](dayd) |  |
 
 
 ## Mission brief
