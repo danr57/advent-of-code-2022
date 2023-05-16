@@ -4,9 +4,10 @@ package day2
 type (
 	// Day is the implementation of Day 2.
 	Day struct {
-		InputFile string
-		Score     int
-		Rounds    []*Round
+		InputFile  string
+		Part1Score int
+		Part2Score int
+		Rounds     []*Round
 	}
 )
 
