@@ -2,7 +2,7 @@
 A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/2022/) by [@topaz](https://github.com/topaz).
 
 [Script](getDayInformation.js) for generating subfolder READMEs by [@ikadix](https://github.com/ikadix) <3
-
+ 
 
 ### Days/Stars:
 |📅          |Stars|
