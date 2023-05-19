@@ -4,6 +4,7 @@ package day3
 type (
 	// Bag contains the compartments of a bag.
 	Bag struct {
+		AllItems     map[string]int
 		Compartments [2]Compartment
 	}
 
@@ -12,18 +13,20 @@ type (
 		MappedItems map[string]int
 	}
 
+	// Group represents a group of elves and their respective badge
 	Group struct {
-		Bags  [3]*Bag
+		Bags  []*Bag
 		badge string
 	}
 
 	// Day is the implementation of Day 3.
 	Day struct {
-		Groups      []Group
+		Groups      []*Group
 		Bags        []*Bag
 		InputFile   string
 		PrioritySum int
 		PriorityMap map[string]int
+		GroupSize   int
 	}
 )
 
@@ -87,11 +90,43 @@ func CreatePriorityMap() map[string]int {
 	}
 }
 
+func (d *Day) makeGroups(bags []*Bag) {
+	group := &Group{}
+
+	for _, bag := range bags {
+		group.Bags = append(group.Bags, bag)
+		if len(group.Bags) == d.GroupSize {
+			d.Groups = append(d.Groups, group)
+			group = &Group{}
+		}
+	}
+}
+
+func (d *Day) findBadge(group *Group) int {
+	badge := 0
+
+	for item := range group.Bags[0].AllItems {
+		_, inBagTwo := group.Bags[1].AllItems[item]
+		_, inBagThree := group.Bags[2].AllItems[item]
+
+		if inBagTwo && inBagThree {
+			group.badge = item
+			badge = d.PriorityMap[item]
+
+			return badge
+		}
+
+	}
+
+	return badge
+}
+
 // New returns a new instance of Day.
 func New() *Day {
 	return &Day{
 		PriorityMap: CreatePriorityMap(),
 		InputFile:   "./day3/input.txt",
+		GroupSize:   3,
 	}
 }
 

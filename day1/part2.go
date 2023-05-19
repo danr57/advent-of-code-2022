@@ -16,6 +16,7 @@ func (d *Day) Part2() (string, error) {
 			d.Elves[2].Calories), nil
 }
 
+// SortElves sorts elves by highest calories
 func (d *Day) SortElves() {
 	sort.Slice(d.Elves, func(i, j int) bool {
 		return d.Elves[i].Calories > d.Elves[j].Calories

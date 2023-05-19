@@ -32,11 +32,14 @@ func (d *Day) Setup() error {
 		splitPoint := len(line) / 2 //nolint:gomnd // halving a value, leave me alone
 
 		items := strings.Split(line, "")
+		bag.AllItems = mapItems(items)
 		bag.Compartments[0].MappedItems = mapItems(items[:splitPoint])
 		bag.Compartments[1].MappedItems = mapItems(items[splitPoint:])
 
 		d.Bags = append(d.Bags, bag)
 	}
+
+	d.makeGroups(d.Bags)
 
 	return nil
 }

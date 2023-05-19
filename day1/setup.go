@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// Setup sets up any required data for the days puzzle.
 func (d *Day) Setup() error {
 	input, err := os.Open(d.InputFile)
 	if err != nil {
