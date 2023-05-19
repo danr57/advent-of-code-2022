@@ -11,6 +11,7 @@ func (d *Day) Setup() error {
 	input, err := os.Open(d.InputFile)
 	if err != nil {
 		log.Fatalf("Error reading file: %v \n Error: %v", input, err)
+
 		return err
 	}
 

@@ -12,8 +12,14 @@ type (
 		MappedItems map[string]int
 	}
 
+	Group struct {
+		Bags  [3]*Bag
+		badge string
+	}
+
 	// Day is the implementation of Day 3.
 	Day struct {
+		Groups      []Group
 		Bags        []*Bag
 		InputFile   string
 		PrioritySum int
