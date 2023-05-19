@@ -11,6 +11,7 @@ func TestPart2(t *testing.T) {
 	day := &day3.Day{
 		PriorityMap: day3.CreatePriorityMap(),
 		InputFile:   "example.txt",
+		GroupSize:   3,
 	}
 
 	if err := day.Setup(); err != nil {
