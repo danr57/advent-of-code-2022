@@ -9,7 +9,8 @@ A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/202
 |------------|-----|
 | [1](day1) | 🌟🌟 |
 | [2](day2) | 🌟🌟 |
-| [3](day3) | 🌟 * |
+| [3](day3) | 🌟🌟 *|
+| [4](day4) | 🌟 |
 | [5](day5) | 🌟🌟 *|
 
 <p>* <code>Cells with an asterisk denote collaboration with @ikadix</code></p>
