@@ -13,6 +13,7 @@ A repo of my solutions to the [2022 Advent of Code](https://adventofcode.com/202
 | [4](day4) | 🌟🌟 |
 | [5](day5) | 🌟🌟 *|
 | [6](day6) | 🌟🌟 *|
+| [7](day7) |  |
 
 <p>* <code>Cells with an asterisk denote collaboration with @ikadix</code></p>
 
