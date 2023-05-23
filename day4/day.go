@@ -3,9 +3,8 @@ package day4
 
 type (
 	Cleaner struct {
-		assignments []int
-		min         int
-		max         int
+		min int
+		max int
 	}
 
 	Team struct {
@@ -19,27 +18,22 @@ type (
 	}
 )
 
-// Checks that all of a Cleaner's assignments overlap with their partner's assignments
+// Checks that all of a Cleaner's assignments overlap with their partner's assignments.
 func (d *Day) checkForTotalOverlap(team *Team) bool {
-	cleaner1min := team.Cleaners[0].assignments[0]
-	cleaner1max := team.Cleaners[0].assignments[len(team.Cleaners[0].assignments)-1]
-	cleaner2min := team.Cleaners[1].assignments[0]
-	cleaner2max := team.Cleaners[1].assignments[len(team.Cleaners[1].assignments)-1]
+	cleaner1 := team.Cleaners[0]
+	cleaner2 := team.Cleaners[1]
 
-	return (cleaner2min >= cleaner1min && cleaner2max <= cleaner1max) ||
-		(cleaner1min >= cleaner2min && cleaner1max <= cleaner2max)
+	return (cleaner2.min >= cleaner1.min && cleaner2.max <= cleaner1.max) ||
+		(cleaner1.min >= cleaner2.min && cleaner1.max <= cleaner2.max)
 }
 
-// Checks whether ANY of 2 Cleaners' assignments overlap
+// Checks whether ANY of 2 Cleaners' assignments overlap.
 func (d *Day) checkForAnyOverlap(team *Team) bool {
-	cleaner1min := team.Cleaners[0].assignments[0]
-	cleaner1max := team.Cleaners[0].assignments[len(team.Cleaners[0].assignments)-1]
-	cleaner2min := team.Cleaners[1].assignments[0]
-	cleaner2max := team.Cleaners[1].assignments[len(team.Cleaners[1].assignments)-1]
+	cleaner1 := team.Cleaners[0]
+	cleaner2 := team.Cleaners[1]
 
-	return (cleaner1min >= cleaner2min && cleaner1min <= cleaner2max) ||
-		(cleaner2min >= cleaner1min && cleaner2min <= cleaner1max)
-
+	return (cleaner1.min >= cleaner2.min && cleaner1.min <= cleaner2.max) ||
+		(cleaner2.min >= cleaner1.min && cleaner2.min <= cleaner1.max)
 }
 
 // New returns a new instance of Day.
