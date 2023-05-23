@@ -13,7 +13,7 @@ type (
 		MappedItems map[string]int
 	}
 
-	// Group represents a group of elves and their respective badge
+	// Group represents a group of elves and their respective badge.
 	Group struct {
 		Bags  []*Bag
 		badge string
@@ -115,7 +115,6 @@ func (d *Day) findBadge(group *Group) int {
 
 			return badge
 		}
-
 	}
 
 	return badge

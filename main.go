@@ -8,6 +8,7 @@ import (
 	"github/danr57/advent-of-code-2022/day3"
 	"github/danr57/advent-of-code-2022/day4"
 	"github/danr57/advent-of-code-2022/day5"
+	"github/danr57/advent-of-code-2022/day6"
 )
 
 func main() {
@@ -17,5 +18,6 @@ func main() {
 		day3.New(),
 		day4.New(),
 		day5.New(),
+		day6.New(),
 	})
 }
