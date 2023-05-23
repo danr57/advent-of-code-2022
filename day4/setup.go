@@ -32,30 +32,34 @@ func (d *Day) Setup() error {
 		cleaners := strings.Split(line, ",")
 		d.Teams = append(d.Teams, d.makeTeam(cleaners))
 	}
+
 	return nil
 }
 
 func (d *Day) makeTeam(cleaners []string) *Team {
 	team := &Team{}
+
 	for _, cleaner := range cleaners {
 		work := strings.Split(cleaner, "-")
 		team.Cleaners = append(team.Cleaners, d.giveCleanerWork(work[0], work[1]))
 	}
+
 	return team
 }
 
 func (d *Day) giveCleanerWork(start string, end string) *Cleaner {
-	s, err := strconv.Atoi(start)
+	min, err := strconv.Atoi(start)
 	if err != nil {
 		log.Fatalf("Error converting string: %s \n err:%v", start, err)
 	}
-	e, err := strconv.Atoi(end)
+
+	max, err := strconv.Atoi(end)
 	if err != nil {
 		log.Fatalf("Error converting string: %s \n err:%v", end, err)
 	}
 
 	return &Cleaner{
-		min: s,
-		max: e,
+		min: min,
+		max: max,
 	}
 }

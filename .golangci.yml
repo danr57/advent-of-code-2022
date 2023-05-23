@@ -356,7 +356,7 @@ linters-settings:
     import-require-single-import: true
     # Require the use of grouped 'import' declarations.
     # Default: false
-    import-require-grouping: true
+    import-require-grouping: false
     # Require the use of a single global 'type' declaration only.
     # Default: false
     type-require-single-type: true
